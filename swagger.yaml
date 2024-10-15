@@ -1,4 +1,3 @@
----
 openapi: 3.1.0
 info:
   description: "This is Alphacode sLLM Model Server Endpoint"
@@ -9,7 +8,7 @@ info:
   host: ""
   basePath: ""
   paths: 
-    "/querytext":
+    /querytext:
       post:
         parameters:
         - name: body
@@ -27,7 +26,7 @@ info:
         responses:
           200:
             description: A successful response
-    "/queryfile":
+    /queryfile:
       post:
         parameters:
         - name: body
@@ -44,5 +43,4 @@ info:
         responses:
           200:
             description: A successful response
-"""
 
