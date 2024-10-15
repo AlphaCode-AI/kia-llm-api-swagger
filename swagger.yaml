@@ -1,0 +1,49 @@
+---
+swagger: "2.0"
+info:
+  description: "This is Alphacode sLLM Model Server Endpoint"
+  title: "sllm endpoint"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+  host: ""
+  basePath: ""
+  paths: 
+    "/querytext":
+      post:
+        parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              text:
+                type: array
+                items:
+                  type: string
+              api_key:
+                type: string
+        responses:
+          200:
+            description: A successful response
+  paths:
+    "queryfile":
+      post:
+        parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            type: object
+            properties:
+              file:
+                type: string
+                format: binary
+              api_key:
+                type: string
+        responses:
+          200:
+            description: A successful response
+"""
+
