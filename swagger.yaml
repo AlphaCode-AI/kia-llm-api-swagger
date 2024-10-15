@@ -27,8 +27,7 @@ info:
         responses:
           200:
             description: A successful response
-  paths:
-    "queryfile":
+    "/queryfile":
       post:
         parameters:
         - name: body
