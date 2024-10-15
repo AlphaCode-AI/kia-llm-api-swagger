@@ -1,12 +1,13 @@
-openapi: 3.1.0
+swagger: '2.0'
 info:
   description: "This is Alphacode sLLM Model Server Endpoint"
   title: "sllm endpoint"
+  version: 1.0.0
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: ""
-basePath: ""
+host: alphacode.co.kr
+basePath: v1
 paths: 
   /querytext:
     post:
