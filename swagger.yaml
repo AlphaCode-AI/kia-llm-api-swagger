@@ -5,42 +5,41 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-  host: ""
-  basePath: ""
-  paths: 
-    /querytext:
-      post:
-        parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            type: object
-            properties:
-              text:
-                type: array
-                items:
-                  type: string
-              api_key:
+host: ""
+basePath: ""
+paths: 
+  /querytext:
+    post:
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            text:
+              type: array
+              items:
                 type: string
-        responses:
-          200:
-            description: A successful response
-    /queryfile:
-      post:
-        parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            type: object
-            properties:
-              file:
-                type: string
-                format: binary
-              api_key:
-                type: string
-        responses:
-          200:
-            description: A successful response
-
+            api_key:
+              type: string
+      responses:
+        200:
+          description: A successful response
+  /queryfile:
+    post:
+      parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+            api_key:
+              type: string
+      responses:
+        200:
+          description: A successful response
