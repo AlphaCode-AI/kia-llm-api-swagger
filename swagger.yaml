@@ -25,6 +25,16 @@ paths:
         schema:
           type: object
           properties:
+            taskId: 
+              type: string
+            styleGuideId:
+              type: string
+            forbiddenWordDicId:
+              type: string
+            mmsId:
+              type: string
+            DictionaryWordId:
+              type: string  
             text:
               type: array
               items:
@@ -55,7 +65,23 @@ paths:
         description: The CSV file to upload
         required: true
         format: binary
-      responses:
+      - in: body
+        name: body
+        required: true
+        schema:
+          type: object
+          properties:
+            taskId: 
+              type: string
+            styleGuideId:
+              type: string
+            forbiddenWordDicId:
+              type: string
+            mmsId:
+              type: string
+            DictionaryWordId:
+              type: string  
+                 responses:
         200:
           description: A successful response
         400:
