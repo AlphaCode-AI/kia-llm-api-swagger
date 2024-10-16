@@ -13,7 +13,7 @@ window.onload = function() {
     plugins: [
       SwaggerUIBundle.plugins.DownloadUrl
     ],
-    layout: "StandaloneLayout"
+    layout: "StandaloneLayout",
   requestInterceptor: (req) => {
     const headerKey = localStorage.getItem('headerKey');
     if (headerKey) {
