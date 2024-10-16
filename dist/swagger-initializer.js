@@ -14,13 +14,30 @@ window.onload = function() {
       SwaggerUIBundle.plugins.DownloadUrl
     ],
     layout: "StandaloneLayout",
-  requestInterceptor: (req) => {
-    const headerKey = localStorage.getItem('headerKey');
-    if (headerKey) {
-      req.headers['X-Custom-Header'] = headerKey;
+    requestInterceptor: (req) => {
+      const headerKey = localStorage.getItem('headerKey');
+      if (headerKey) {
+        req.headers['X-Custom-Header'] = headerKey;
+      }
+      return req;
+    },
+    onComplete: function() {
+      const operations = document.querySelectorAll('.opblock');
+      operations.forEach(op => {
+        const headerInputDiv = document.createElement('div');
+        headerInputDiv.innerHTML = `
+          <input type="text" placeholder="Enter Header Key" class="header-key-input" />
+          <button class="set-header-button">Set Header</button>
+        `;
+        op.querySelector('.opblock-summary').appendChild(headerInputDiv);
+
+        headerInputDiv.querySelector('.set-header-button').addEventListener('click', function() {
+          const headerKey = headerInputDiv.querySelector('.header-key-input').value;
+          localStorage.setItem('headerKey', headerKey);
+          alert('Header key set: ' + headerKey);
+        });
+      });
     }
-    return req;
-  }
   });
 
   //</editor-fold>
