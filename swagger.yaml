@@ -81,7 +81,7 @@ paths:
               type: string
             DictionaryWordId:
               type: string  
-                 responses:
+      responses:
         200:
           description: A successful response
         400:
