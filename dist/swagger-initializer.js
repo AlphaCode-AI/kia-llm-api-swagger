@@ -14,6 +14,13 @@ window.onload = function() {
       SwaggerUIBundle.plugins.DownloadUrl
     ],
     layout: "StandaloneLayout"
+  requestInterceptor: (req) => {
+    const headerKey = localStorage.getItem('headerKey');
+    if (headerKey) {
+      req.headers['X-Custom-Header'] = headerKey;
+    }
+    return req;
+  }
   });
 
   //</editor-fold>
