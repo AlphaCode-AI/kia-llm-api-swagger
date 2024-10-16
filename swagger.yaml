@@ -12,6 +12,11 @@ paths:
   /querytext:
     post:
       parameters:
+      - name: SHA256
+        in: header
+        type: string
+        required: true
+        description: SHA256 hash key for authentication
       - name: body
         in: body
         required: true
