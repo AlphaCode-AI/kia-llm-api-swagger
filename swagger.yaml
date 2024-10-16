@@ -29,11 +29,6 @@ paths:
               type: array
               items:
                 type: string
-      - name: type
-        in: query
-        type: string
-        required: true
-        description: Type of query
       responses:
         200:
           description: A successful response
