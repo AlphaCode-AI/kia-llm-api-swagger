@@ -56,6 +56,3 @@ paths:
       responses:
         200:
           description: A successful response
-
-# Import hello function
-import hello
