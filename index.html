@@ -15,5 +15,16 @@
     <script src="dist/swagger-ui-bundle.js" charset="UTF-8"> </script>
     <script src="dist/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
     <script src="dist/swagger-initializer.js" charset="UTF-8"> </script>
+  <div id="header-input">
+    <input type="text" id="headerKey" placeholder="Enter Header Key" />
+    <button onclick="setHeader()">Set Header</button>
+  </div>
+  <script>
+    function setHeader() {
+      const headerKey = document.getElementById('headerKey').value;
+      localStorage.setItem('headerKey', headerKey);
+      alert('Header key set: ' + headerKey);
+    }
+  </script>
   </body>
 </html>
