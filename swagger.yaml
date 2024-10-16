@@ -61,7 +61,7 @@ paths:
         description: SHA256 hash key for authentication
       - in: formData
         name: file
-        type: file
+        
         description: The CSV file to upload
         required: true
         format: binary
@@ -79,8 +79,8 @@ paths:
               type: string
             mmsId:
               type: string
-            DictionaryWordId:
-              type: string  
+            dictionaryWordId:
+              type: string
       responses:
         200:
           description: A successful response
