@@ -27,7 +27,11 @@ paths:
               type: array
               items:
                 type: string
-      responses:
+      - name: type
+        in: query
+        type: string
+        required: true
+        description: Type of query
         200:
           description: A successful response
   /queryfile:
