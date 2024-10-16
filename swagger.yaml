@@ -32,6 +32,13 @@ paths:
       responses:
         200:
           description: A successful response
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+          
   /queryfile:
     post:
       consumes:
@@ -51,3 +58,9 @@ paths:
       responses:
         200:
           description: A successful response
+        400:
+          description: Bad Request
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
