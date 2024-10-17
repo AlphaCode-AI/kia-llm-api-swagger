@@ -6,8 +6,8 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: alphacode.co.kr
-basePath: /v1
+host: 34.70.67.174
+basePath: /
 paths: 
   /querytext:
     post:
@@ -33,7 +33,7 @@ paths:
               type: string
             mmsId:
               type: string
-            DictionaryWordId:
+            DictionaryId:
               type: string  
             text:
               type: array
@@ -79,7 +79,7 @@ paths:
               type: string
             mmsId:
               type: string
-            dictionaryWordId:
+            dictionaryId:
               type: string
       responses:
         200:
