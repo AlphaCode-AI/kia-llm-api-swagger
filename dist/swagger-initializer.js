@@ -17,7 +17,7 @@ window.onload = function() {
     requestInterceptor: (req) => {
       const headerKey = localStorage.getItem('headerKey');
       if (headerKey) {
-        req.headers['SHA256'] = headerKey;
+        req.headers['apikey'] = headerKey;
       }
       return req;
     },
