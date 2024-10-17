@@ -33,7 +33,7 @@ paths:
               type: string
             mmsId:
               type: string
-            DictionaryId:
+            dictionaryId:
               type: string  
             text:
               type: array
