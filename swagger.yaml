@@ -61,26 +61,34 @@ paths:
         description: SHA256 hash key for authentication
       - in: formData
         name: file
-        
+        type: file
         description: The CSV file to upload
         required: true
-        format: binary
-      - in: body
-        name: body
+      - in: formData
+        name: taskId
+        type: string
+        description: The task ID
         required: true
-        schema:
-          type: object
-          properties:
-            taskId: 
-              type: string
-            styleGuideId:
-              type: string
-            forbiddenWordId:
-              type: string
-            mmsId:
-              type: string
-            dictionaryId:
-              type: string
+      - in: formData
+        name: styleGuideId
+        type: string
+        description: The style guide ID
+        required: true
+      - in: formData
+        name: forbiddenWordId
+        type: string
+        description: The forbidden word ID
+        required: true
+      - in: formData
+        name: mmsId
+        type: string
+        description: The MMS ID
+        required: true
+      - in: formData
+        name: dictionaryId
+        type: string
+        description: The dictionary ID
+        required: true
       responses:
         200:
           description: A successful response
