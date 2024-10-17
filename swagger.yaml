@@ -1,4 +1,4 @@
-swagger: '2.0'
+openapi: 3.0.0
 info:
   description: "This is Alphacode sLLM Model Server Endpoint"
   title: "sllm endpoint"
@@ -6,39 +6,33 @@ info:
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: 34.70.67.174:8080
-basePath: /
-paths: 
+servers:
+  - url: http://34.70.67.174:8080
+paths:
   /querytext:
     post:
-      consumes:
-      - application/json
-      parameters:
-      - name: apikey
-        in: header
-        type: string
+      summary: Submit text data
+      requestBody:
         required: true
-        description: SHA256 hash key for authentication
-      - name: body
-        in: body
-        required: true
-        schema:
-          type: object
-          properties:
-            taskId: 
-              type: string
-            styleGuideId:
-              type: string
-            forbiddenWordDicId:
-              type: string
-            mmsId:
-              type: string
-            dictionaryId:
-              type: string  
-            text:
-              type: array
-              items:
-                type: string
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                taskId: 
+                  type: string
+                styleGuideId:
+                  type: string
+                forbiddenWordDicId:
+                  type: string
+                mmsId:
+                  type: string
+                dictionaryId:
+                  type: string
+                text:
+                  type: array
+                  items:
+                    type: string
       responses:
         200:
           description: A successful response
@@ -48,47 +42,36 @@ paths:
           description: Unauthorized
         403:
           description: Forbidden
-          
+
   /queryfile:
     post:
-      consumes:
-      - multipart/form-data
-      parameters:
-      - name: apikey
-        in: header
-        type: string
+      summary: Upload a CSV file with metadata
+      requestBody:
         required: true
-        description: SHA256 hash key for authentication
-      - in: formData
-        name: file
-        type: file
-        description: The CSV file to upload
-        required: true
-      - in: formData
-        name: taskId
-        type: string
-        description: The task ID
-        required: true
-      - in: formData
-        name: styleGuideId
-        type: string
-        description: The style guide ID
-        required: true
-      - in: formData
-        name: forbiddenWordId
-        type: string
-        description: The forbidden word ID
-        required: true
-      - in: formData
-        name: mmsId
-        type: string
-        description: The MMS ID
-        required: true
-      - in: formData
-        name: dictionaryId
-        type: string
-        description: The dictionary ID
-        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The CSV file to upload
+                taskId: 
+                  type: string
+                  description: The task ID
+                styleGuideId:
+                  type: string
+                  description: The style guide ID
+                forbiddenWordId:
+                  type: string
+                  description: The forbidden word ID
+                mmsId:
+                  type: string
+                  description: The MMS ID
+                dictionaryId:
+                  type: string
+                  description: The dictionary ID
       responses:
         200:
           description: A successful response
