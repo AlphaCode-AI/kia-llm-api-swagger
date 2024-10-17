@@ -14,7 +14,7 @@ paths:
       consumes:
       - application/json
       parameters:
-      - name: SHA256
+      - name: apikey
         in: header
         type: string
         required: true
@@ -54,7 +54,7 @@ paths:
       consumes:
       - multipart/form-data
       parameters:
-      - name: SHA256
+      - name: apikey
         in: header
         type: string
         required: true
