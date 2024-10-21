@@ -54,9 +54,9 @@ paths:
         400:
           description: Invalid input or missing parameters
         401:
-          description: Unauthorized - API key is invalid or missing
+          description: Unauthorized - API key is missing
         403:
-          description: Forbidden - Access is not allowed
+          description: Forbidden - API key is invalid
 
   /queryfile:
     post:
@@ -104,10 +104,10 @@ paths:
           description: The API key to authenticate requests
       responses:
         200:
-          description: File uploaded successfully
+          description: Request successfully processed
         400:
           description: Invalid input or missing parameters
         401:
-          description: Unauthorized - API key is invalid or missing
+          description: Unauthorized - API key is missing
         403:
-          description: Forbidden - Access is not allowed
+          description: Forbidden - API key is invalid
