@@ -15,20 +15,28 @@ paths:
       requestBody:
         required: true
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
                 taskId: 
                   type: string
-                styleGuideId:
-                  type: string
-                forbiddenWordDicId:
-                  type: string
-                mmsId:
-                  type: string
-                dictionaryId:
-                  type: string
+                styleGuideIds:
+                  type: array
+                  items:
+                    type: string
+                forbiddenWordDicIds:
+                  type: array
+                  items:
+                    type: string
+                mmsIds:
+                  type: array
+                  items:
+                    type: string
+                dictionaryIds:
+                  type: array
+                  items:
+                    type: string
                 text:
                   type: array
                   items:
@@ -42,6 +50,13 @@ paths:
           description: Unauthorized
         403:
           description: Forbidden
+      parameters:
+        - in: header
+          name: API-Key
+          schema:
+            type: string
+          required: true
+          description: The API key to authenticate requests
 
   /queryfile:
     post:
@@ -60,18 +75,26 @@ paths:
                 taskId: 
                   type: string
                   description: The task ID
-                styleGuideId:
-                  type: string
-                  description: The style guide ID
-                forbiddenWordId:
-                  type: string
-                  description: The forbidden word ID
-                mmsId:
-                  type: string
-                  description: The MMS ID
-                dictionaryId:
-                  type: string
-                  description: The dictionary ID
+                styleGuideIds
+                  type: array
+                  items:
+                    type: string
+                  description: The style guide IDs
+                forbiddenWordDicIds:
+                  type: array
+                  items:
+                    type: string
+                  description: The forbidden word dictionary IDs
+                mmsIds:
+                  type: array
+                  items:
+                    type: string
+                  description: The MMS IDs
+                dictionaryIds:
+                  type: array
+                  items:
+                    type: string
+                  description: The dictionary IDs
       responses:
         200:
           description: A successful response
@@ -81,3 +104,10 @@ paths:
           description: Unauthorized
         403:
           description: Forbidden
+      parameters:
+        - in: header
+          name: API-Key
+          schema:
+            type: string
+          required: true
+          description: The API key to authenticate requests
