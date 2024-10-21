@@ -75,7 +75,7 @@ paths:
                 taskId: 
                   type: string
                   description: The task ID
-                styleGuideIds
+                styleGuideIds:
                   type: array
                   items:
                     type: string
