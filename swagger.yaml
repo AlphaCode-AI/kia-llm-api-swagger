@@ -41,15 +41,6 @@ paths:
                   type: array
                   items:
                     type: string
-      responses:
-        200:
-          description: A successful response
-        400:
-          description: Bad Request
-        401:
-          description: Unauthorized
-        403:
-          description: Forbidden
       parameters:
         - in: header
           name: API-Key
@@ -57,6 +48,15 @@ paths:
             type: string
           required: true
           description: The API key to authenticate requests
+      responses:
+        200:
+          description: Request successfully processed
+        400:
+          description: Invalid input or missing parameters
+        401:
+          description: Unauthorized - API key is invalid or missing
+        403:
+          description: Forbidden - Access is not allowed
 
   /queryfile:
     post:
@@ -72,7 +72,7 @@ paths:
                   type: string
                   format: binary
                   description: The CSV file to upload
-                taskId: 
+                taskId:
                   type: string
                   description: The task ID
                 styleGuideIds:
@@ -95,15 +95,6 @@ paths:
                   items:
                     type: string
                   description: The dictionary IDs
-      responses:
-        200:
-          description: A successful response
-        400:
-          description: Bad Request
-        401:
-          description: Unauthorized
-        403:
-          description: Forbidden
       parameters:
         - in: header
           name: API-Key
@@ -111,3 +102,12 @@ paths:
             type: string
           required: true
           description: The API key to authenticate requests
+      responses:
+        200:
+          description: File uploaded successfully
+        400:
+          description: Invalid input or missing parameters
+        401:
+          description: Unauthorized - API key is invalid or missing
+        403:
+          description: Forbidden - Access is not allowed
