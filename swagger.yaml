@@ -7,7 +7,7 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 servers:
-  - url: http://34.70.67.174:8080
+  - url: http://34.64.192.145:8000
 paths:
   /querytext:
     post:
@@ -15,7 +15,7 @@ paths:
       requestBody:
         required: true
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
               properties:
@@ -25,7 +25,7 @@ paths:
                   type: array
                   items:
                     type: string
-                forbiddenWordDicIds:
+                forbiddenDictionaryIds:
                   type: array
                   items:
                     type: string
@@ -80,7 +80,7 @@ paths:
                   items:
                     type: string
                   description: The style guide IDs
-                forbiddenWordDicIds:
+                forbiddenDictionaryIds:
                   type: array
                   items:
                     type: string
