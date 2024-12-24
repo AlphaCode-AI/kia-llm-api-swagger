@@ -112,9 +112,9 @@ paths:
         403:
           description: Forbidden - API key is invalid
 
-  /chat-completion:
+  /v1/chat/completions:
     post:
-      summary: Chat completion API
+      summary: Create chat completion
       requestBody:
         required: true
         content:
