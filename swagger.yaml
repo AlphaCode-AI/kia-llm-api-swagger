@@ -111,3 +111,62 @@ paths:
           description: Unauthorized - API key is missing
         403:
           description: Forbidden - API key is invalid
+
+  /chat-completion:
+    post:
+      summary: Chat completion API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  minLength: 1
+                  description: 입력 텍스트
+                output_length:
+                  type: integer
+                  minimum: 1
+                  maximum: 1024
+                  description: 출력 텍스트의 최대 길이
+                temperature:
+                  type: number
+                  minimum: 0
+                  maximum: 2
+                  description: 생성 텍스트의 다양성 조절 파라미터
+                language_code:
+                  type: string
+                  enum: [KR, EN]
+                  description: 입력 언어 코드
+              required:
+                - text
+                - output_length
+                - temperature
+                - language_code
+      parameters:
+        - in: header
+          name: API-Key
+          schema:
+            type: string
+          required: true
+          description: The API key to authenticate requests
+      responses:
+        200:
+          description: Request successfully processed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Data successfully added to the task queue"
+        400:
+          description: Invalid input or missing parameters
+        401:
+          description: Unauthorized - API key is missing
+        403:
+          description: Forbidden - API key is invalid
+          
