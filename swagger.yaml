@@ -122,11 +122,14 @@ paths:
             schema:
               type: object
               properties:
+                chatId:
+                  type: string
+                  description: chat id
                 text:
                   type: string
                   minLength: 1
                   description: 입력 텍스트
-                output_length:
+                outputLength:
                   type: integer
                   minimum: 1
                   maximum: 1024
@@ -136,7 +139,7 @@ paths:
                   minimum: 0
                   maximum: 2
                   description: 생성 텍스트의 다양성 조절 파라미터
-                language_code:
+                languageCode:
                   type: string
                   enum: [KR, EN]
                   description: 입력 언어 코드
