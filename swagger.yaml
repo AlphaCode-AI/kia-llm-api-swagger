@@ -7,7 +7,7 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 servers:
-  - url: http://34.70.67.174:8080
+  - url: http://34.64.192.145:8000
 paths:
   /querytext:
     post:
@@ -122,38 +122,24 @@ paths:
             schema:
               type: object
               properties:
-                parameters:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      outputLength:
-                        type: integer
-                        minimum: 1
-                        maximum: 1024
-                        description: 출력 텍스트의 최대 길이
-                      temperature:
-                        type: number
-                        minimum: 0
-                        maximum: 2
-                        description: 생성 텍스트의 다양성 조절 파라미터
-                      languageCode:
-                        type: string
-                        enum: [KR, EN]
-                        description: 입력 언어 코드
-                      prompt:
-                        type: string
-                        minLength: 1
-                        description: 프롬프트 텍스트
-                    required:
-                      - outputLength
-                      - temperature
-                      - languageCode
-                      - prompt
-                requestText:
+                text:
                   type: string
                   minLength: 1
-                  description: 요청 텍스트
+                  description: 입력 텍스트
+                output_length:
+                  type: integer
+                  minimum: 1
+                  maximum: 1024
+                  description: 출력 텍스트의 최대 길이
+                temperature:
+                  type: number
+                  minimum: 0
+                  maximum: 2
+                  description: 생성 텍스트의 다양성 조절 파라미터
+                language_code:
+                  type: string
+                  enum: [KR, EN]
+                  description: 입력 언어 코드
               required:
                 - parameters
                 - requestText
