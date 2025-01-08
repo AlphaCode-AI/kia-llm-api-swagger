@@ -192,30 +192,11 @@ paths:
             schema:
               type: object
               properties:
-                file:
-                  type: string
-                  format: binary
-                  description: 업로드할 PDF 파일
                 taskId:
                   type: string
                   description: 작업 ID
-                bucketPath:
-                  type: string
-                  description: 버킷 경로
-                languageCode:
-                  type: string
-                  enum: [KR, EN]
-                  description: 언어 코드
-                dictionaryIds:
-                  type: array
-                  items:
-                    type: string
-                  description: 사전 ID 목록
               required:
                 - taskId
-                - bucketPath
-                - languageCode
-                - dictionaryIds
       parameters:
         - in: header
           name: API-Key
