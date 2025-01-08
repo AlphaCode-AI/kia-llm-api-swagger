@@ -181,4 +181,63 @@ paths:
           description: Unauthorized - API key is missing
         403:
           description: Forbidden - API key is invalid
+
+  /v1/word-extraction/pdf:
+    post:
+      summary: PDF 파일에서 단어 추출
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: 업로드할 PDF 파일
+                taskId:
+                  type: string
+                  description: 작업 ID
+                bucketPath:
+                  type: string
+                  description: 버킷 경로
+                languageCode:
+                  type: string
+                  enum: [KR, EN]
+                  description: 언어 코드
+                dictionaryIds:
+                  type: array
+                  items:
+                    type: string
+                  description: 사전 ID 목록
+              required:
+                - taskId
+                - bucketPath
+                - languageCode
+                - dictionaryIds
+      parameters:
+        - in: header
+          name: API-Key
+          schema:
+            type: string
+          required: true
+          description: API 인증 키
+      responses:
+        200:
+          description: 요청이 성공적으로 처리됨
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Data successfully added to the task queue"
+        400:
+          description: 잘못된 입력이나 누락된 매개변수
+        401:
+          description: 인증되지 않음 - API 키 누락
+        403:
+          description: 금지됨 - 유효하지 않은 API 키
           
